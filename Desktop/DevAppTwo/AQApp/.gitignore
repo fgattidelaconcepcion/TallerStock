@@ -34,6 +34,11 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
-
 node_modules/
+.expo/
+*.log
+.vscode/
+.gitconfig
+*.lnk
+
 
