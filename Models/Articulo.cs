@@ -6,12 +6,17 @@ namespace TallerStockAPI.Models
     {
         public int Id { get; set; }
 
-        [MaxLength(100)]
+        [Required(ErrorMessage = "El nombre es obligatorio.")]
+        [MaxLength(100, ErrorMessage = "El nombre no puede tener más de 100 caracteres.")]
         public string Nombre { get; set; }
 
+        [Range(0, int.MaxValue, ErrorMessage = "El stock no puede ser negativo.")]
         public int Stock { get; set; }
 
+        [Required(ErrorMessage = "La categoría es obligatoria.")]
         [MaxLength(100)]
         public string Categoria { get; set; }
+
+        public DateTime FechaAlta { get; set; } = DateTime.UtcNow;
     }
 }
