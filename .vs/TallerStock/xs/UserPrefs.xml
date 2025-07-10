@@ -2,15 +2,18 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.TallerStock PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/ArticulosController.cs">
     <Files>
       <File FileName="Program.cs" />
-      <File FileName="appsettings.json" Line="13" Column="1" />
-      <File FileName="Models/Articulo.cs" Line="23" Column="1" />
+      <File FileName="appsettings.json" />
+      <File FileName="Models/Articulo.cs" />
       <File FileName="Controllers/ArticulosController.cs" Line="41" Column="41" />
       <File FileName="Migrations/20250708000949_InitialCreate.cs" />
       <File FileName="Migrations/TallerContextModelSnapshot.cs" />
-      <File FileName="Data/TallerContext.cs" Line="30" Column="10" />
+      <File FileName="Data/TallerContext.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,8 +21,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.TallerStock PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
