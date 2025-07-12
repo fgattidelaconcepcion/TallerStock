@@ -38,7 +38,6 @@ namespace TallerStockAPI.Controllers
                 .Take(pageSize)
                 .ToListAsync();
 
-            // Encabezado de paginación 
             Response.Headers.Add("X-Total-Count", total.ToString());
 
             return articulos;
@@ -63,6 +62,36 @@ namespace TallerStockAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            // Verificamos si existe un artículo con el mismo nombre (case insensitive)
+            var articuloExistente = await _context.Articulos
+                .FirstOrDefaultAsync(a => a.Nombre.ToLower() == articulo.Nombre.ToLower());
+
+            if (articuloExistente != null)
+            {
+                // Si existe, aumentamos el stock
+                articuloExistente.Stock += articulo.Stock;
+                // Podemos también actualizar la categoría si querés, pero generalmente no se cambia aquí
+                // articuloExistente.Categoria = articulo.Categoria;
+
+                _context.Entry(articuloExistente).State = EntityState.Modified;
+
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!_context.Articulos.Any(e => e.Id == articuloExistente.Id))
+                        return NotFound();
+                    else
+                        throw;
+                }
+
+                // Devolvemos NoContent porque es una actualización, o bien CreatedAtAction si preferís
+                return NoContent();
+            }
+
+            // Si no existe el artículo, lo agregamos normalmente
             _context.Articulos.Add(articulo);
             await _context.SaveChangesAsync();
 
