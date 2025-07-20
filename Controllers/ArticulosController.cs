@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using TallerStockAPI.Data;
 using TallerStockAPI.Models;
-<<<<<<< HEAD
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Linq;
-=======
->>>>>>> 44c94335b00e41c62c32e5ec41e37f1a0a3af098
 
 namespace TallerStockAPI.Controllers
 {
@@ -39,6 +37,7 @@ namespace TallerStockAPI.Controllers
                 query = query.Where(a => a.Categoria.Contains(categoria));
 
             var total = await query.CountAsync();
+
             var articulos = await query
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
@@ -68,21 +67,18 @@ namespace TallerStockAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-<<<<<<< HEAD
-=======
-            // Verificamos si existe un artículo con el mismo nombre (case insensitive)
->>>>>>> 44c94335b00e41c62c32e5ec41e37f1a0a3af098
+            // Buscar artículo existente (ignorando mayúsculas)
             var articuloExistente = await _context.Articulos
                 .FirstOrDefaultAsync(a => a.Nombre.ToLower() == articulo.Nombre.ToLower());
 
             if (articuloExistente != null)
             {
-<<<<<<< HEAD
+                // Actualizar stock
                 articuloExistente.Stock += articulo.Stock;
 
                 _context.Entry(articuloExistente).State = EntityState.Modified;
 
-                // Registrar movimiento ingreso por stock agregado
+                // Registrar movimiento de ingreso por stock agregado
                 var movimiento = new MovimientoStock
                 {
                     ArticuloId = articuloExistente.Id,
@@ -92,15 +88,6 @@ namespace TallerStockAPI.Controllers
                 };
                 _context.MovimientosStock.Add(movimiento);
 
-=======
-                // Si existe, aumentamos el stock
-                articuloExistente.Stock += articulo.Stock;
-                // Podemos también actualizar la categoría si querés, pero generalmente no se cambia aquí
-                // articuloExistente.Categoria = articulo.Categoria;
-
-                _context.Entry(articuloExistente).State = EntityState.Modified;
-
->>>>>>> 44c94335b00e41c62c32e5ec41e37f1a0a3af098
                 try
                 {
                     await _context.SaveChangesAsync();
@@ -113,7 +100,6 @@ namespace TallerStockAPI.Controllers
                         throw;
                 }
 
-<<<<<<< HEAD
                 return NoContent();
             }
 
@@ -121,7 +107,7 @@ namespace TallerStockAPI.Controllers
             _context.Articulos.Add(articulo);
             await _context.SaveChangesAsync();
 
-            // Registrar movimiento ingreso por nuevo artículo
+            // Registrar movimiento de ingreso por nuevo artículo
             var nuevoMovimiento = new MovimientoStock
             {
                 ArticuloId = articulo.Id,
@@ -133,16 +119,6 @@ namespace TallerStockAPI.Controllers
 
             await _context.SaveChangesAsync();
 
-=======
-                // Devolvemos NoContent porque es una actualización, o bien CreatedAtAction si preferís
-                return NoContent();
-            }
-
-            // Si no existe el artículo, lo agregamos normalmente
-            _context.Articulos.Add(articulo);
-            await _context.SaveChangesAsync();
-
->>>>>>> 44c94335b00e41c62c32e5ec41e37f1a0a3af098
             return CreatedAtAction(nameof(GetArticulo), new { id = articulo.Id }, articulo);
         }
 
@@ -187,7 +163,6 @@ namespace TallerStockAPI.Controllers
 
             return NoContent();
         }
-<<<<<<< HEAD
 
         // GET: api/articulos/5/movimientos
         [HttpGet("{id}/movimientos")]
@@ -200,7 +175,5 @@ namespace TallerStockAPI.Controllers
 
             return movimientos;
         }
-=======
->>>>>>> 44c94335b00e41c62c32e5ec41e37f1a0a3af098
     }
 }
