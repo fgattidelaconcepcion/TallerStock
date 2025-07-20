@@ -1,1 +1,15 @@
+<<<<<<< HEAD
 {"Version":1,"Hash":"WHF0jXca0MWm3+PUtMEQABd4Ll1vmRGov+XroeUJdq8=","Source":"TallerStock","BasePath":"_content/TallerStock","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+=======
+{
+  "Version": 1,
+  "Hash": "YGetJeHxsqphnE1BbD+Ar0ofyPILngvvilM6zEPv7TE=",
+  "Source": "TallerStock",
+  "BasePath": "_content/TallerStock",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
+>>>>>>> 44c94335b00e41c62c32e5ec41e37f1a0a3af098

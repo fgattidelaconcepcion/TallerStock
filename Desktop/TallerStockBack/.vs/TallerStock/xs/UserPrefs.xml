@@ -1,0 +1,36 @@
+﻿<Properties StartupConfiguration="{7B6EBD95-5C37-4AC7-9376-A3D425012FF4}|https">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/MovimientosStockController.cs">
+    <Files>
+      <File FileName="Program.cs" />
+      <File FileName="appsettings.json" />
+      <File FileName="Models/Articulo.cs" Line="23" Column="2" />
+      <File FileName="Controllers/ArticulosController.cs" Line="15" Column="10" />
+      <File FileName="Migrations/20250708000949_InitialCreate.cs" />
+      <File FileName="Migrations/TallerContextModelSnapshot.cs" />
+      <File FileName="Data/TallerContext.cs" Line="16" Column="1" />
+      <File FileName="Controllers/WeatherForecastController.cs" Line="1" Column="1" />
+      <File FileName="Models/MovimientoStock.cs" Line="12" Column="33" />
+      <File FileName="Controllers/MovimientosStockController.cs" Line="17" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TallerStock">
+            <Node name="TallerStock" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.TallerStock PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+</Properties>

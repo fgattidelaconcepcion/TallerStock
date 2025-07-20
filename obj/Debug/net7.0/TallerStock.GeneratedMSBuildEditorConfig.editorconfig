@@ -9,6 +9,7 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TallerStock
 build_property.RootNamespace = TallerStock
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\usuario\Desktop\TallerStockBack\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
@@ -19,3 +20,11 @@ build_property.MSBuildProjectDirectory = C:\Users\usuario\Desktop\TallerStockBac
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 7.0
 build_property.EnableCodeStyleSeverity = 
+=======
+build_property.ProjectDir = /Users/franco/Desktop/TallerStock/
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/franco/Desktop/TallerStock
+build_property._RazorSourceGeneratorDebug = 
+>>>>>>> 44c94335b00e41c62c32e5ec41e37f1a0a3af098

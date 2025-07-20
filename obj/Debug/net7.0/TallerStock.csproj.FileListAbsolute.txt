@@ -102,6 +102,7 @@
 /Users/franco/Desktop/TallerStock/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.TallerStock.props
 /Users/franco/Desktop/TallerStock/obj/Debug/net7.0/staticwebassets.pack.json
 /Users/franco/Desktop/TallerStock/obj/Debug/net7.0/TallerStock.csproj.CopyComplete
+<<<<<<< HEAD
 C:\Users\usuario\Desktop\TallerStockBack\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\usuario\Desktop\TallerStockBack\bin\Debug\net7.0\appsettings.json
 C:\Users\usuario\Desktop\TallerStockBack\bin\Debug\net7.0\TallerStock.staticwebassets.endpoints.json
@@ -210,3 +211,5 @@ C:\Users\usuario\Desktop\TallerStockBack\obj\Debug\net7.0\TallerStock.genruntime
 C:\Users\usuario\Desktop\TallerStockBack\obj\Debug\net7.0\ref\TallerStock.dll
 C:\Users\usuario\Desktop\TallerStockBack\obj\Debug\net7.0\staticwebassets.upToDateCheck.txt
 C:\Users\usuario\Desktop\TallerStockBack\obj\Debug\net7.0\TallerStock.sourcelink.json
+=======
+>>>>>>> 44c94335b00e41c62c32e5ec41e37f1a0a3af098
