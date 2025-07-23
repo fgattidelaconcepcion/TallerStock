@@ -8,16 +8,19 @@ namespace TallerStockAPI.Models
 
         [Required(ErrorMessage = "El nombre es obligatorio.")]
         [MaxLength(100, ErrorMessage = "El nombre no puede tener más de 100 caracteres.")]
-        public string Nombre { get; set; } = string.Empty; // Inicialización para evitar nulls
+        public string Nombre { get; set; } = string.Empty;
 
         [Range(0, int.MaxValue, ErrorMessage = "El stock no puede ser negativo.")]
         public int Stock { get; set; }
 
         [Required(ErrorMessage = "La categoría es obligatoria.")]
         [MaxLength(100)]
-        public string Categoria { get; set; } = string.Empty; // Inicialización para evitar nulls
+        public string Categoria { get; set; } = string.Empty;
 
-        // Propiedad FechaAlta que causó el error
-        public DateTime FechaAlta { get; set; } = DateTime.UtcNow; // Se inicializa automáticamente con la fecha y hora actual UTC
+        public DateTime FechaAlta { get; set; } = DateTime.UtcNow;
+
+
+        [MaxLength(50)]
+        public string Tamano { get; set; } = string.Empty;
     }
 }
