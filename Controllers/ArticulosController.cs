@@ -67,60 +67,48 @@ namespace TallerStockAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            // Buscar artículo existente (ignorando mayúsculas)
+            if (string.IsNullOrWhiteSpace(articulo.Nombre) || string.IsNullOrWhiteSpace(articulo.Tamano))
+                return BadRequest("El nombre y el tamaño son obligatorios.");
+
             var articuloExistente = await _context.Articulos
-                .FirstOrDefaultAsync(a => a.Nombre.ToLower() == articulo.Nombre.ToLower());
+                .FirstOrDefaultAsync(a =>
+                    a.Nombre.ToLower() == articulo.Nombre.ToLower() &&
+                    a.Tamano.ToLower() == articulo.Tamano.ToLower());
 
             if (articuloExistente != null)
             {
-                // Actualizar stock
                 articuloExistente.Stock += articulo.Stock;
-
                 _context.Entry(articuloExistente).State = EntityState.Modified;
 
-                // Registrar movimiento de ingreso por stock agregado
-                var movimiento = new MovimientoStock
+                _context.MovimientosStock.Add(new MovimientoStock
                 {
                     ArticuloId = articuloExistente.Id,
                     Cantidad = articulo.Stock,
                     TipoMovimiento = "Ingreso",
                     Comentario = "Stock agregado a artículo existente"
-                };
-                _context.MovimientosStock.Add(movimiento);
+                });
 
-                try
-                {
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_context.Articulos.Any(e => e.Id == articuloExistente.Id))
-                        return NotFound();
-                    else
-                        throw;
-                }
-
+                await _context.SaveChangesAsync();
                 return NoContent();
             }
 
-            // Nuevo artículo
             _context.Articulos.Add(articulo);
             await _context.SaveChangesAsync();
 
-            // Registrar movimiento de ingreso por nuevo artículo
-            var nuevoMovimiento = new MovimientoStock
+            _context.MovimientosStock.Add(new MovimientoStock
             {
                 ArticuloId = articulo.Id,
                 Cantidad = articulo.Stock,
                 TipoMovimiento = "Ingreso",
                 Comentario = "Alta de nuevo artículo"
-            };
-            _context.MovimientosStock.Add(nuevoMovimiento);
+            });
 
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetArticulo), new { id = articulo.Id }, articulo);
         }
+
+
 
         // PUT: api/articulos/5
         [HttpPut("{id}")]

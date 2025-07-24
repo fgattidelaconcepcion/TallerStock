@@ -19,8 +19,8 @@ namespace TallerStockAPI.Models
 
         public DateTime FechaAlta { get; set; } = DateTime.UtcNow;
 
-
         [MaxLength(50)]
+        [Required(ErrorMessage = "El tamaño es obligatorio.")]
         public string Tamano { get; set; } = string.Empty;
     }
 }
